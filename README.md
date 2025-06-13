@@ -17,7 +17,7 @@ This starter kit is compatible with:
 
 - **PNPM** (Recommended for better performance and dependency management)  
 - **NPM** (Standard support)  
-- **Yarn** (Alternative option)  
+- **Yarn** (Alternative option) 
 ```
 ## 🏁 Getting Started
 
@@ -26,6 +26,10 @@ First, clone the project to your local machine using Git:
 
 ```sh
 git clone https://github.com/b3t0247/nextjs-tailwind.git
+```
+
+### **Navigate into the Project Directory**  
+```sh
 cd nextjs-tailwind
 ```
 
@@ -80,7 +84,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - **Turbopack** - Next.js' high-performance bundler for development.  
 - **@tailwindcss/oxide** (`4.1.10`) - Rust-based optimization for faster Tailwind CSS processing.  
 - **Sharp** (`0.34.2`) - High-performance image processing.  
-- **unrs-Resolver** (`1.9.0`) - Fast Rust-based module resolution.  
+- **unrs-resolver** (`1.9.0`) - Fast Rust-based module resolution.  
 
 ## 🎨 Dark Mode Toggle  
 This project includes a **dark mode toggle**, powered by **Next-Themes**.  
@@ -88,7 +92,9 @@ This project includes a **dark mode toggle**, powered by **Next-Themes**.
 ## 🚀 Faster Tailwind Processing with Oxide  
 This starter kit includes **@tailwindcss/oxide**, a Rust-based optimization layer for Tailwind CSS that significantly speeds up processing.  
 
-**Note:** If installation fails, you can run Tailwind using its default JavaScript implementation.
+**Optional:** `@tailwindcss/oxide` speeds up Tailwind processing but is not required. Tailwind CSS 4.1 works out-of-the-box without it.
+
+**Note:** Tailwind CSS 4.1 no longer requires a configuration file by default.
 
 ## 🖼️ Image Processing with Sharp  
 This starter kit includes **sharp**, a high-performance image processing library used for resizing and optimizing images efficiently.  
@@ -112,7 +118,22 @@ npm install --global windows-build-tools
 ```
 Run the command in **PowerShell as Administrator** for best results.
 
-## ⚡ Fast Module Resolution with Unrs-Resolver  
+### 🔧 Installation Troubleshooting  
+
+#### **PNPM Build Script Approvals**  
+Some dependencies, such as `@tailwindcss/oxide`, `sharp`, and `unrs-resolver`, require explicit permission to run build scripts. If you see the warning:  
+
+![Installation Warning](public/image.png)
+
+Run the following command to approve these packages:
+```sh
+pnpm approve-builds @tailwindcss/oxide sharp unrs-resolver
+```
+After approval, rerun:
+```sh
+pnpm install
+```
+## ⚡ Fast Module Resolution with unrs-resolver  
 This project uses **unrs-resolver**, a Rust-based module resolution tool that improves dependency resolution for Next.js and TypeScript.  
 
 ## 🛠 Formatting & Linting  
@@ -134,6 +155,4 @@ Explore more resources:
 
 ## 🚀 Deploy on Vercel  
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).  
-
-Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.  
 
