@@ -1,37 +1,51 @@
 # Next.js 15 Tailwind CSS 4 Starter Kit
 
 ```md
-# Next.js 15 (App Router)
+## 🚀 Overview  
 
-Configured with **Tailwind CSS**, **TypeScript**, **ESLint**, **Prettier**, **ShadCN UI**, and **Next-Themes** for dark mode support.  
+This starter kit is built with a **modern, optimized stack** to streamline development:  
+
+- **Tailwind CSS** – Utility-first styling for rapid UI design  
+- **TypeScript** – Static typing for improved reliability and maintainability  
+- **ESLint & Prettier** – Enforces code consistency and formatting best practices  
+- **ShadCN UI** – Pre-built, customizable UI components  
+- **Next-Themes** – Provides seamless dark mode support  
+
+### 💡 Supported Package Managers  
+
+This starter kit is compatible with:  
+
+- **PNPM** (Recommended for better performance and dependency management)  
+- **NPM** (Standard support)  
+- **Yarn** (Alternative option)  
 ```
-## 🚀 Getting Started  
+## 🏁 Getting Started
 
-### **Clone the Repository**
-First, clone the project to your local machine using Git:
+### **Clone the Repository**  
+First, clone the project to your local machine using Git:  
 
 ```sh
 git clone https://github.com/b3t0247/nextjs-tailwind.git
 cd nextjs-tailwind
 ```
 
-### **Install Dependencies**
-After navigating into the project directory, install dependencies using **PNPM** (recommended):
+### **Install Dependencies**  
+After navigating into the project directory, install dependencies using **PNPM** (recommended):  
 
 ```sh
 pnpm install
-```
-Alternatively, you can use:
+```  
+
+Alternatively, you can use:  
+
 ```sh
 npm install
 # or
 yarn install
-# or
-bun install
 ```
 
-### **Run the Development Server**
-Start the Next.js development server:
+### **Run the Development Server**  
+Start the Next.js development server:  
 
 ```sh
 pnpm dev  # Recommended
@@ -39,8 +53,6 @@ pnpm dev  # Recommended
 npm run dev
 # or
 yarn dev
-# or
-bun dev
 ```
 
 Now, open [http://localhost:3000](http://localhost:3000) in your browser.  
@@ -64,24 +76,44 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - **clsx** (`2.1.1`) - Conditional class merging.  
 - **tw-animate-css** (`1.3.4`) - Tailwind animation utilities.  
 
-### **Development Tools**  
-- **TypeScript** (`5.8.3`) - Static typing for JavaScript.  
-- **ESLint** (`9.28.0`) - Linter for maintaining code quality.  
-- **Prettier** (`3.5.3`) - Code formatter.  
-- **ESLint Plugin Prettier** (`5.4.1`) - Integrates Prettier into ESLint.  
-- **Prettier Plugin Tailwind CSS** (`0.6.12`) - Automatically sorts Tailwind classes.  
-- **ESLint Config Prettier** (`10.1.5`) - Disables ESLint rules conflicting with Prettier.  
-- **ESLint Config Next** (`15.3.3`) - Next.js-specific linting rules.  
-- **@typescript-eslint/eslint-plugin** (`8.34.0`) - TypeScript linting rules.  
-- **@typescript-eslint/parser** (`8.34.0`) - Parses TypeScript for ESLint.  
-- **@types/node** (`24.0.1`) - Type definitions for Node.js.  
-- **@types/react** (`19.1.8`) - Type definitions for React.  
-
-### **Build & Performance**  
+### **Performance & Optimization**  
 - **Turbopack** - Next.js' high-performance bundler for development.  
+- **@tailwindcss/oxide** (`4.1.10`) - Rust-based optimization for faster Tailwind CSS processing.  
+- **Sharp** (`0.34.2`) - High-performance image processing.  
+- **unrs-Resolver** (`1.9.0`) - Fast Rust-based module resolution.  
 
 ## 🎨 Dark Mode Toggle  
 This project includes a **dark mode toggle**, powered by **Next-Themes**.  
+
+## 🚀 Faster Tailwind Processing with Oxide  
+This starter kit includes **@tailwindcss/oxide**, a Rust-based optimization layer for Tailwind CSS that significantly speeds up processing.  
+
+**Note:** If installation fails, you can run Tailwind using its default JavaScript implementation.
+
+## 🖼️ Image Processing with Sharp  
+This starter kit includes **sharp**, a high-performance image processing library used for resizing and optimizing images efficiently.  
+
+#### Troubleshooting  
+Some systems require additional dependencies to install `sharp`. If you encounter issues, try:  
+
+##### **macOS**
+```sh
+brew install libvips
+```
+
+##### **Linux**
+```sh
+sudo apt install libvips-dev
+```
+
+##### **Windows**
+```sh
+npm install --global windows-build-tools
+```
+Run the command in **PowerShell as Administrator** for best results.
+
+## ⚡ Fast Module Resolution with Unrs-Resolver  
+This project uses **unrs-resolver**, a Rust-based module resolution tool that improves dependency resolution for Next.js and TypeScript.  
 
 ## 🛠 Formatting & Linting  
 To maintain code consistency, use:  
@@ -104,6 +136,4 @@ Explore more resources:
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).  
 
 Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.  
-
----
 
