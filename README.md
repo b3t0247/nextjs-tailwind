@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 15 Tailwind CSS 4 Starter Kit
 
-## Getting Started
+```md
+# Next.js 15 (App Router)
 
-First, run the development server:
+Configured with **Tailwind CSS**, **TypeScript**, **ESLint**, **Prettier**, **ShadCN UI**, and **Next-Themes** for dark mode support.  
+```
+## 🚀 Getting Started  
 
-```bash
+### **Clone the Repository**
+First, clone the project to your local machine using Git:
+
+```sh
+git clone https://github.com/b3t0247/nextjs-tailwind.git
+cd nextjs-tailwind
+```
+
+### **Install Dependencies**
+After navigating into the project directory, install dependencies using **PNPM** (recommended):
+
+```sh
+pnpm install
+```
+Alternatively, you can use:
+```sh
+npm install
+# or
+yarn install
+# or
+bun install
+```
+
+### **Run the Development Server**
+Start the Next.js development server:
+
+```sh
+pnpm dev  # Recommended
+# or
 npm run dev
 # or
 yarn dev
 # or
-pnpm dev
-# or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now, open [http://localhost:3000](http://localhost:3000) in your browser.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 Project Configuration  
 
-## Learn More
+### **Core Dependencies**  
+- **Next.js** (`15.3.3`) - React framework for server-side rendering and static site generation.  
+- **React** (`19.1.0`) - UI library for building components.  
+- **React-DOM** (`19.1.0`) - DOM bindings for React.  
+- **Next-Themes** (`0.4.6`) - Theme toggling for dark/light mode.  
+- **ShadCN UI** - Pre-built, customizable UI components.  
 
-To learn more about Next.js, take a look at the following resources:
+### **Styling & UI**  
+- **Tailwind CSS** (`4.1.10`) - Utility-first CSS framework.  
+- **Tailwind Merge** (`3.3.1`) - Merges Tailwind class names efficiently.  
+- **Lucide React** (`0.514.0`) - Modern icons for UI components.  
+- **Class Variance Authority** (`0.7.1`) - Manages utility class combinations.  
+- **clsx** (`2.1.1`) - Conditional class merging.  
+- **tw-animate-css** (`1.3.4`) - Tailwind animation utilities.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Development Tools**  
+- **TypeScript** (`5.8.3`) - Static typing for JavaScript.  
+- **ESLint** (`9.28.0`) - Linter for maintaining code quality.  
+- **Prettier** (`3.5.3`) - Code formatter.  
+- **ESLint Plugin Prettier** (`5.4.1`) - Integrates Prettier into ESLint.  
+- **Prettier Plugin Tailwind CSS** (`0.6.12`) - Automatically sorts Tailwind classes.  
+- **ESLint Config Prettier** (`10.1.5`) - Disables ESLint rules conflicting with Prettier.  
+- **ESLint Config Next** (`15.3.3`) - Next.js-specific linting rules.  
+- **@typescript-eslint/eslint-plugin** (`8.34.0`) - TypeScript linting rules.  
+- **@typescript-eslint/parser** (`8.34.0`) - Parses TypeScript for ESLint.  
+- **@types/node** (`24.0.1`) - Type definitions for Node.js.  
+- **@types/react** (`19.1.8`) - Type definitions for React.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Build & Performance**  
+- **Turbopack** - Next.js' high-performance bundler for development.  
 
-## Deploy on Vercel
+## 🎨 Dark Mode Toggle  
+This project includes a **dark mode toggle**, powered by **Next-Themes**.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Formatting & Linting  
+To maintain code consistency, use:  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+pnpm lint       # Runs ESLint  
+pnpm format     # Runs Prettier  
+pnpm lint --fix # Auto-fixes ESLint issues  
+pnpm exec prettier --write . # Formats all files  
+```
+
+## 📚 Learn More  
+Explore more resources:  
+- [Next.js Documentation](https://nextjs.org/docs)  
+- [Next.js GitHub](https://github.com/vercel/next.js)  
+- [ShadCN UI](https://ui.shadcn.com/)  
+- [Tailwind CSS](https://tailwindcss.com/docs)  
+
+## 🚀 Deploy on Vercel  
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).  
+
+Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.  
+
+---
+
