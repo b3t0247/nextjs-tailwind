@@ -118,21 +118,6 @@ npm install --global windows-build-tools
 ```
 Run the command in **PowerShell as Administrator** for best results.
 
-### 🔧 Installation Troubleshooting  
-
-#### **PNPM Build Script Approvals**  
-Some dependencies, such as `@tailwindcss/oxide`, `sharp`, and `unrs-resolver`, require explicit permission to run build scripts. If you see the warning:  
-
-![Installation Warning](public/image.png)
-
-Run the following command to approve these packages:
-```sh
-pnpm approve-builds @tailwindcss/oxide sharp unrs-resolver
-```
-After approval, rerun:
-```sh
-pnpm install
-```
 ## ⚡ Fast Module Resolution with unrs-resolver  
 This project uses **unrs-resolver**, a Rust-based module resolution tool that improves dependency resolution for Next.js and TypeScript.  
 
