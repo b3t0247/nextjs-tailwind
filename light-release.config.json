@@ -1,0 +1,18 @@
+{
+  "generateMarkdown": true,
+  "generateHTML": false,
+  "releaseNotesDir": ".release-notes",
+  "badgeStyle": "flat-square",
+  "dateFormat": "YYYY-MM-DD",
+  "showCommitImpact": true,
+  "blockIfChangesExist": true,
+  "autoCommit": false,
+  "squashIntoSingleVersioning": true,
+  "showAuthorLinks": false,
+  "versionFileName": "package.json",
+  "defaultImpactThresholds": {
+    "low": 1,
+    "medium": 5,
+    "high": 10
+  }
+}
