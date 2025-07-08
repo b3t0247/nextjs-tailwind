@@ -1,43 +1,51 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import * as tseslint from "typescript-eslint";
+import prettierPlugin from "eslint-plugin-prettier";
+import prettierOptions from "./prettier.config.mjs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export default [
+  // Global ignore to prevent type-aware rules from touching this file
+  {
+    ignores: [".release-it.ts", ".lintstagedrc.mjs"],
+  },
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  // Base JS rules
+  js.configs.recommended,
 
-const eslintConfig = [
-  ...compat.config({
-    extends: [
-      "next",
-      "next/core-web-vitals",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-    ],
-    parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint", "prettier"],
+  // TypeScript rules (type-aware)
+  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
     rules: {
       "@typescript-eslint/no-unused-vars": ["warn"],
-      // '@typescript-eslint/explicit-function-return-type': ['warn'],
-      "prettier/prettier": [
-        "error",
-        {
-          trailingComma: "all",
-          semi: true,
-          tabWidth: 2,
-          singleQuote: false,
-          printWidth: 80,
-          endOfLine: "auto",
-          arrowParens: "always",
-          plugins: ["prettier-plugin-tailwindcss"],
-        },
-        { usePrettierrc: false },
-      ],
     },
-  }),
-];
+  },
 
-export default eslintConfig;
+  // Fallback for .release-it.ts (non-type-aware)
+  {
+    files: [".release-it.ts"],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["warn"],
+    },
+  },
+
+  // Prettier integration
+  {
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      "prettier/prettier": ["error", prettierOptions, { usePrettierrc: false }],
+    },
+  },
+];

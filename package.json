@@ -10,7 +10,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:check": "eslint \"**/*.{ts,tsx}\"",
     "format": "prettier --write .",
     "prepare": "husky",
     "release": "release-it --config=.release-it.ts"
@@ -32,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.30.1",
     "@release-it/conventional-changelog": "^10.0.1",
     "@tailwindcss/oxide": "^4.1.10",
     "@tailwindcss/postcss": "^4.1.10",
@@ -45,9 +46,11 @@
     "conventional-changelog-cli": "^5.0.0",
     "conventional-recommended-bump": "^11.2.0",
     "eslint": "^9.29.0",
-    "eslint-config-next": "15.3.4",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.1",
@@ -55,6 +58,7 @@
     "release-it": "^19.0.3",
     "tailwindcss": "^4.1.10",
     "tw-animate-css": "^1.3.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0"
   }
 }
