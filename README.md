@@ -1,163 +1,283 @@
-# Next.js 15 Tailwind CSS 4 Starter Kit
+# ⚡ Next.js 15 + Tailwind CSS 4 Starter Kit
 
-```md
-## 🚀 Overview
+![Node.js 22+](https://img.shields.io/badge/node-22%2B-blue?logo=node.js)
+![pnpm 10.x](https://img.shields.io/badge/pnpm-10.x-4B8BBE?logo=pnpm)
+[![Linting: ESLint](https://img.shields.io/badge/linting-eslint-blue?logo=eslint)](https://eslint.org/)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier)](https://prettier.io/)
+![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
 
-This starter kit is built with a **modern, optimized stack** to streamline development:
+A modern, well-structured starter kit for building fast, accessible, and scalable web applications using **Next.js 15**, **Tailwind CSS 4**, and a curated set of developer tools.
 
-- **Tailwind CSS** – Utility-first styling for rapid UI design
-- **TypeScript** – Static typing for improved reliability and maintainability
-- **ESLint & Prettier** – Enforces code consistency and formatting best practices
-- **ShadCN UI** – Pre-built, customizable UI components
-- **Next-Themes** – Provides seamless dark mode support
+---
 
-### 💡 Supported Package Managers
+## 📚 Table of Contents
 
-This starter kit is compatible with:
+- [🚀 Features](#features)
+- [📦 Tech Stack](#tech-stack)
+- [📁 Folder Structure](#folder-structure)
+- [⚙️ Getting Started](#getting-started)
+- [🧪 Scripts](#scripts)
+- [🛠️ Tooling Configuration](#tooling-configuration)
+- [🧱 Development Workflow](#development-workflow)
+- [♿ Accessibility](#accessibility)
+- [🧪 Commit Guidelines](#commit-guidelines)
+- [📚 Resources](#resources)
+- [📄 License](#license)
 
-- **PNPM** (Recommended for better performance and dependency management)
-- **NPM** (Standard support)
-- **Yarn** (Alternative option)
+---
+
+<a id="features"></a>
+
+## 🚀 Features
+
+- **Next.js 15** App Router with Turbopack for fast builds and instant refreshes
+- **Tailwind CSS 4** with `prettier-plugin-tailwindcss` for automatic class sorting
+- **Dark mode support** via [`next-themes`](https://github.com/pacocoursey/next-themes)
+- **Radix UI** primitives for accessible components
+- **TypeScript** for type-safe development
+- **ESLint + Prettier** with a shared config for consistent formatting
+- **Husky + lint-staged** for automated pre-commit checks
+- **Release It!** for automated semantic versioning and changelog updates
+- **Commitlint + Conventional Commits** for structured commit history
+- **ShadCN UI** fully customizable, locally owned components
+
+---
+
+<a id="tech-stack"></a>
+
+## 📦 Tech Stack
+
+- **Framework**: Next.js 15 (App Router, Turbopack)
+- **Styling**: Tailwind CSS v4.1, PostCSS
+- **Language**: TypeScript
+- **Linting & Formatting**: ESLint (Flat Config), Prettier (shared config)
+- **Dev Tools**: pnpm, Husky, lint-staged, Commitlint, Release It!
+- **UI & Icons**: Radix UI, Lucide, ShadCN UI
+
+---
+
+<a id="folder-structure"></a>
+
+## 📁 Folder Structure
+
+```txt
+.
+├── app/                    # App Router entry point
+│   ├── styles/             # Global styles and Tailwind CSS entry
+│   └── ...                 # Route segments and layout files
+├── components/             # Reusable UI components
+├── lib/                    # Shared utilities and helpers
+├── public/                 # Static assets (images, icons, etc.)
+├── .husky/                 # Git hooks
+├── .lintstagedrc.mjs       # Pre-commit formatting config
+├── .prettierignore         # Files and folders excluded from Prettier
+├── prettier.config.mjs     # Shared Prettier configuration
+├── .release-it.ts          # Release It! configuration
+├── commitlint.config.mjs   # Commitlint rules for commit message validation
+├── eslint.config.mjs       # Flat ESLint configuration with Prettier integration
+├── postcss.config.mjs      # PostCSS integration
+├── components.json         # ShadCN UI CLI config
+├── tsconfig.json           # TypeScript configuration
+├── package.json            # Project metadata and scripts
+└── ...
 ```
 
-## 🏁 Getting Started
+<a id="getting-started"></a>
 
-### **Clone the Repository**
+## ⚙️ Getting Started
 
-First, clone the project to your local machine using Git:
+### Prerequisites
 
-```sh
-git clone https://github.com/b3t0247/nextjs-tailwind.git
+- Node.js 22+
+- pnpm 10+
+
+### 1. Clone the repo
+
+```bash
+npx degit https://github.com/b3t0247/nextjs-tailwind my-app
 ```
 
-### **Navigate into the Project Directory**
-
-```sh
-cd nextjs-tailwind
+```bash
+cd my-app
 ```
 
-### **Install Dependencies**
+### 2. Install dependencies
 
-After navigating into the project directory, install dependencies using **PNPM** (recommended):
-
-```sh
+```bash
 pnpm install
 ```
 
-Alternatively, you can use:
+### 3. Start the development server
 
-```sh
-npm install
-# or
-yarn install
+```bash
+pnpm dev
 ```
 
-### **Run the Development Server**
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Start the Next.js development server:
+<a id="scripts"></a>
 
-```sh
-pnpm dev  # Recommended
-# or
-npm run dev
-# or
-yarn dev
+## 🧪 Scripts
+
+| Command           | Description                                | Notes                        |
+| ----------------- | ------------------------------------------ | ---------------------------- |
+| `pnpm dev`        | Start the dev server with Turbopack        | Requires Node.js 22+         |
+| `pnpm build`      | Build the app for production               | Outputs to `.next/`          |
+| `pnpm start`      | Start the production server                | Requires prior build         |
+| `pnpm lint`       | Run ESLint with auto-fix                   | Uses Flat Config             |
+| `pnpm lint:check` | Run ESLint without auto-fix (optional)     | Uses Flat Config             |
+| `pnpm format`     | Format code using Prettier                 | Includes Tailwind plugin     |
+| `pnpm release`    | Automated versioning and changelog updates | Uses `.release-it.ts` config |
+
+> 💡 Tip: Use `pnpm lint --fix` or `pnpm exec prettier --write .` to auto-fix issues and format all files.
+
+<a id="tooling-configuration"></a>
+
+## 🛠️ Tooling Configuration
+
+| File                    | Purpose                                                                   |
+| ----------------------- | ------------------------------------------------------------------------- |
+| `eslint.config.mjs`     | Flat Config for ESLint with TypeScript, Prettier, and accessibility rules |
+| `prettier.config.mjs`   | Shared Prettier configuration used by both ESLint and Prettier CLI        |
+| `.lintstagedrc.mjs`     | Runs ESLint and Prettier on staged files before commits using lint-staged |
+| `.prettierignore`       | Excludes files and folders from Prettier formatting                       |
+| `.release-it.ts`        | Automated semantic versioning and changelog generation                    |
+| `commitlint.config.mjs` | Enforces Conventional Commits and custom rules for commit messages        |
+| `.husky/`               | Contains Git hooks (e.g., pre-commit) managed by Husky                    |
+| `tailwind.config.ts`    | Tailwind CSS configuration for design tokens, themes, and plugins         |
+| `postcss.config.mjs`    | Configures PostCSS plugins (e.g., Tailwind CSS integration)               |
+| `components.json`       | ShadCN UI CLI config for scaffolding components and managing aliases      |
+| `tsconfig.json`         | TypeScript compiler configuration                                         |
+
+---
+
+<a id="development-workflow"></a>
+
+## 🧱 Development Workflow
+
+- Formatting tools (Prettier, ESLint, lint-staged)
+- Customization options (Tailwind tokens, ESLint/Prettier configuration, ShadCN UI edits, Husky hooks)
+
+### 🔍 Code Formatting & Linting
+
+This project uses unified configs for consistent code quality:
+
+- **Prettier**: Formatting rules are defined in `prettier.config.mjs` and used by both ESLint and the Prettier CLI.
+- **ESLint**: Uses native Flat Config (`eslint.config.mjs`) with TypeScript, Prettier, and accessibility plugins.
+- **lint-staged**: Automatically formats staged files before commits using ESLint and Prettier.
+- **No `.prettierrc` needed**: All formatting rules live in `prettier.config.mjs` to avoid duplication.
+
+```bash
+pnpm format      # Runs Prettier using shared config
+pnpm lint        # Runs ESLint with auto-fix enabled
 ```
 
-Now, open [http://localhost:3000](http://localhost:3000) in your browser.
+### 🛠️ Project Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Customize your workflow and design system:
 
-## 🔧 Project Configuration
+- **Tailwind CSS** v4 follows a CSS-first configuration model. Rather than using the conventional `tailwind.config.ts` file for design tokens, this project defines them directly in `global.css` using Tailwind’s `@theme`, `@custom-variant`, and `@layer` directives. OKLCH-based color tokens, radius scales, and font families are set inline within the `@theme` block, while base styles are applied using `@layer` base. To modify the design system, edit `app/global.css`.
 
-### **Core Dependencies**
+- **ShadCN UI** components are copied into your project and fully owned. Customize them freely using Tailwind, CVA variants, and your design tokens. ShadCN CLI scaffolds components into `@/components/ui`, and aliases like `@/lib/utils` and `@/hooks` keep your imports clean.
 
-- **Next.js** (`15.3.3`) - React framework for server-side rendering and static site generation.
-- **React** (`19.1.0`) - UI library for building components.
-- **React-DOM** (`19.1.0`) - DOM bindings for React.
-- **Next-Themes** (`0.4.6`) - Theme toggling for dark/light mode.
-- **ShadCN UI** - Pre-built, customizable UI components.
+- **ESLint Rules** Extend or override rules in `eslint.config.mjs` file or your shared config package. You can also add plugins for accessibility, import sorting, or testing.
 
-### **Styling & UI**
+- **Prettier** Add a `.prettierrc` file to customize formatting preferences like tab width, trailing commas, or quote style. This project uses inline Prettier config with `prettier-plugin-tailwindcss` for class sorting.
 
-- **Tailwind CSS** (`4.1.10`) - Utility-first CSS framework.
-- **Tailwind Merge** (`3.3.1`) - Merges Tailwind class names efficiently.
-- **Lucide React** (`0.514.0`) - Modern icons for UI components.
-- **Class Variance Authority** (`0.7.1`) - Manages utility class combinations.
-- **clsx** (`2.1.1`) - Conditional class merging.
-- **tw-animate-css** (`1.3.4`) - Tailwind animation utilities.
+- **Commitlint** Adjust `commitlint.config.mjs` to enforce or relax rules around commit scopes, types, or message length.
 
-### **Performance & Optimization**
+- **Release Strategy** Tweak `.release-it.ts` to change version bumping behavior, changelog formatting, or GitHub release settings.
 
-- **Turbopack** - Next.js' high-performance bundler for development.
-- **@tailwindcss/oxide** (`4.1.10`) - Rust-based optimization for faster Tailwind CSS processing.
-- **Sharp** (`0.34.2`) - High-performance image processing.
-- **unrs-resolver** (`1.9.0`) - Fast Rust-based module resolution.
+- **Husky Hooks** Add or modify Git hooks in `./husky` to run tests, type checks, or other validations before commits or pushes.
 
-## 🎨 Dark Mode Toggle
+<a id="accessibility"></a>
 
-This project includes a **dark mode toggle**, powered by **Next-Themes**.
+## ♿ Accessibility
 
-## 🚀 Faster Tailwind Processing with Oxide
+[**Next.js**](https://nextjs.org/docs/architecture/accessibility) includes strong accessibility support out of the box, helping you build inclusive web experiences by default.
 
-This starter kit includes **@tailwindcss/oxide**, a Rust-based optimization layer for Tailwind CSS that significantly speeds up processing.
+### ✅ Built-in Features
 
-**Optional:** `@tailwindcss/oxide` speeds up Tailwind processing but is not required. Tailwind CSS 4.1 works out-of-the-box without it.
+- **Route Announcer**: Automatically announces page changes to screen readers during client-side navigation.
 
-**Note:** Tailwind CSS 4.1 no longer requires a configuration file by default.
+- **ESLint Accessibility Rules**: Includes [`eslint-plugin-jsx-a11y`](https://nextjs.org/learn/dashboard-app/improving-accessibility) by default to catch common accessibility issues in JSX.
 
-## 🖼️ Image Processing with Sharp
+- **Semantic HTML Encouragement**: Encourages use of `<main>`, `<nav>`, `<header>`, and other semantic elements.
 
-This starter kit includes **sharp**, a high-performance image processing library used for resizing and optimizing images efficiently.
+- **Keyboard Navigation**: Core components like `<Link>` (next/link) and `<Image>` (next/image) are accessible by default.
 
-#### Troubleshooting
+### 🔧 Recommended Enhancements
 
-Some systems require additional dependencies to install `sharp`. If you encounter issues, try:
+- **Descriptive Page Titles**  
+  Use `<Head>` to set meaningful titles for screen readers:
 
-##### **macOS**
+  ```tsx
+  <Head>
+    <title>Dashboard – MyApp</title>
+  </Head>
+  ```
 
-```sh
-brew install libvips
-```
+- **Skip to Content Link**  
+  Add a visually hidden link to let keyboard users bypass navigation:
 
-##### **Linux**
+  ```tsx
+  <a href="#main-content" className="sr-only focus:not-sr-only">
+    Skip to content
+  </a>
+  ```
 
-```sh
-sudo apt install libvips-dev
-```
+- **Language Declaration** Set the default language in `next.config.js`:
 
-##### **Windows**
+  ```js
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  }
+  ```
 
-```sh
-npm install --global windows-build-tools
-```
+- **ARIA Roles (When Needed)** Use ARIA attributes for custom components like modals, tabs, or dropdowns - but prefer semantic HTML when possible.
 
-Run the command in **PowerShell as Administrator** for best results.
+- **Accessibility Testing Tools** Use tools like [axe DevTools](https://www.deque.com/axe/devtools/), [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring), or screen readers like NVDA or VoiceOver to audit your app.
 
-## ⚡ Fast Module Resolution with unrs-resolver
+> 💡 Tip: Accessibility is not just about compliance — it improves usability for everyone.
 
-This project uses **unrs-resolver**, a Rust-based module resolution tool that improves dependency resolution for Next.js and TypeScript.
+<a id="commit-guidelines"></a>
 
-## 🛠 Formatting & Linting
+## 🧪 Commit Guidelines
 
-To maintain code consistency, use:
+This project uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for consistent commit messages.
 
-```sh
-pnpm lint       # Runs ESLint
-pnpm format     # Runs Prettier
-pnpm lint --fix # Auto-fixes ESLint issues
-pnpm exec prettier --write . # Formats all files
-```
+<a id="license"></a>
 
-## 📚 Learn More
+## 📄 License
 
-Explore more resources:
+This project is licensed under the [MIT License](./LICENSE). Feel free to use, fork, and contribute!
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Next.js GitHub](https://github.com/vercel/next.js)
-- [ShadCN UI](https://ui.shadcn.com/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
+<a id="resources"></a>
+
+## 📚 Resources
+
+---
+
+| Tool / Library                                          | Purpose                                             |
+| ------------------------------------------------------- | --------------------------------------------------- |
+| [Next.js 15](https://nextjs.org/docs)                   | React framework with App Router and Turbopack       |
+| [Tailwind CSS](https://tailwindcss.com/docs)            | Utility-first CSS framework with OKLCH support      |
+| [TypeScript](https://www.typescriptlang.org/)           | Static typing for JavaScript                        |
+| [Radix UI](https://www.radix-ui.com/)                   | Accessible, unstyled UI primitives                  |
+| [ShadCN UI](https://ui.shadcn.com/)                     | Build your own component library                    |
+| [Lucide](https://lucide.dev/)                           | Beautiful, consistent icon set                      |
+| [Husky](https://typicode.github.io/husky/)              | Git hook manager for running scripts before commits |
+| [Lint-staged](https://github.com/okonet/lint-staged)    | Run linters on staged files before committing       |
+| [Commitlint](https://commitlint.js.org/)                | Enforce Conventional Commit messages                |
+| [Release It!](https://github.com/release-it/release-it) | Automate versioning and changelog generation        |
+
+---
 
 ## 🚀 Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+
+The easiest way to deploy this Next.js app is with [Vercel](https://vercel.com), the creators of Next.js.
+
+📘 Learn more: [Next.js Deployment Docs](https://nextjs.org/docs/app/getting-started/deploying)
