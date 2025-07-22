@@ -102,7 +102,7 @@ const config: Config = {
     requireBranch: false,
   },
   github: {
-    release: false,
+    release: true,
   },
   npm: {
     publish: false,
