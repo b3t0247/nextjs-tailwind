@@ -1,5 +1,16 @@
 import type { Config } from "release-it";
+import { execSync } from "child_process";
 import chalk from "chalk";
+
+function getRepoSlug(): string {
+  try {
+    const url = execSync("git remote get-url origin").toString().trim();
+    const match = url.match(/github\.com[/:]([^/]+\/[^/.]+)(?:\.git)?/);
+    return match?.[1] ?? "unknown/repo";
+  } catch {
+    return "unknown/repo";
+  }
+}
 
 type ConventionalCommit = {
   header?: string;
@@ -80,6 +91,15 @@ const config: Config = {
               month: "long",
               day: "numeric",
             }).format(new Date(date));
+            const repoSlug = getRepoSlug();
+            const commitGroups = ctx.commitGroups as any[];
+
+          for (const group of commitGroups) {
+            for (const commit of group.commits) {
+              commit.shortHash = commit.hash.slice(0, 7);
+              commit.commitUrl = `https://github.com/${repoSlug}/commit/${commit.hash}`;
+            }
+          }
           return ctx;
         },
         mainTemplate: `## {{version}} ({{formatDate date}})
