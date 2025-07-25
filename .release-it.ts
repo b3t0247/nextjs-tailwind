@@ -91,8 +91,8 @@ const config: Config = {
               month: "long",
               day: "numeric",
             }).format(new Date(date));
-            const repoSlug = getRepoSlug();
-            const commitGroups = ctx.commitGroups as any[];
+          const repoSlug = getRepoSlug();
+          const commitGroups = ctx.commitGroups as any[];
 
           for (const group of commitGroups) {
             for (const commit of group.commits) {

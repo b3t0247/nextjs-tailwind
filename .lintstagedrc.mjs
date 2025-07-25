@@ -1,7 +1,8 @@
 export default {
   "*.{js,jsx,ts,tsx,mjs,cjs}": (files) => {
     const filtered = files.filter(
-      (f) => !f.endsWith("eslint.config.mjs") && !f.endsWith("prettier.config.mjs")
+      (f) =>
+        !f.endsWith("eslint.config.mjs") && !f.endsWith("prettier.config.mjs"),
     );
     if (filtered.length === 0) return [];
     const quoted = filtered.map((f) => `"${f}"`).join(" ");
