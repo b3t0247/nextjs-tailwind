@@ -36,7 +36,9 @@ export default defineConfig([
 
   // TypeScript rules (type-aware)
   {
-    files: ["**/*.{ts,tsx}"],
+    // Use expanded globs for .ts/.tsx — safer than "**/*.{ts,tsx}" in nested setups
+    files: ["**/*.ts", "**/*.tsx"],
+    ignores: [".release-it.ts"], // Exclude this file from typed linting
     plugins: {
       "@typescript-eslint": tseslint.plugin,
     },
