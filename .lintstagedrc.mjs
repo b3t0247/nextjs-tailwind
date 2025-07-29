@@ -15,7 +15,7 @@ const buildLintCommand = (files) => {
     .join(" ");
 
   return [
-    `pnpm exec next lint --fix ${quoted}`,
+    `pnpm exec next lint --fix --file ${quoted}`,
     `pnpm exec prettier --write ${quoted}`,
     `git add ${quoted}`,
   ];
