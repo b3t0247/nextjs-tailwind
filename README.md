@@ -62,24 +62,32 @@ A modern, well-structured starter kit for building fast, accessible, and scalabl
 
 ```txt
 .
-├── app/                    # App Router entry point
-│   ├── styles/             # Global styles and Tailwind CSS entry
-│   └── ...                 # Route segments and layout files
-├── components/             # Reusable UI components
-├── lib/                    # Shared utilities and helpers
-├── public/                 # Static assets (images, icons, etc.)
-├── .husky/                 # Git hooks
-├── .lintstagedrc.mjs       # Pre-commit formatting config
-├── .prettierignore         # Files and folders excluded from Prettier
-├── prettier.config.mjs     # Shared Prettier configuration
-├── .release-it.ts          # Release It! configuration
-├── commitlint.config.mjs   # Commitlint rules for commit message validation
-├── eslint.config.mjs       # Flat ESLint configuration with Prettier integration
-├── postcss.config.mjs      # PostCSS integration
-├── components.json         # ShadCN UI CLI config
-├── tsconfig.json           # TypeScript configuration
-├── package.json            # Project metadata and scripts
-└── ...
+├── src/
+│   ├── app/                 # App Router entry point and global styles
+│   │   ├── globals.css      # Tailwind theme tokens and base styles
+│   │   ├── layout.tsx       # Root layout
+│   │   └── page.tsx         # Home page
+│   ├── components/          # Reusable UI and theme components
+│   │   ├── theme-provider.tsx
+│   │   ├── theme-toggle.tsx
+│   │   ├── ...
+│   │   └── ui/              # ShadCN UI components
+│   │       ├── button.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       └── ...
+│   ├── lib/                 # Shared utilities and helpers
+│   │   └── utils.ts
+├── public/                  # Static assets served at root
+├── .husky/                  # Git hooks
+├── components.json          # ShadCN UI CLI config
+├── commitlint.config.mjs    # Conventional commit rules
+├── eslint.config.mjs        # Flat ESLint configuration with Prettier integration
+├── prettier.config.mjs      # Prettier with Tailwind plugin
+├── postcss.config.mjs       # PostCSS config for Tailwind CSS
+├── .lintstagedrc.mjs        # Format and lint staged files
+├── .release-it.ts           # Semantic versioning and changelog
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # Project metadata and npm scripts
 ```
 
 <a id="getting-started"></a>
