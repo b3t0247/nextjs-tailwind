@@ -1,0 +1,11 @@
+{
+  "title": "Welcome to the homepage",
+  "description": "This is a localized Next.js app.",
+  "language": "Language",
+  "greeting": "Hello",
+  "welcome": "Welcome to our site!",
+  "nav": {
+    "home": "Home",
+    "about": "About Us"
+  }
+}
