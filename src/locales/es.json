@@ -1,7 +1,7 @@
 {
   "title": "Bienvenido a la página de inicio",
   "description": "Esta es una aplicación Next.js localizada.",
-  "language": "Idioma",
+  "language": "Español",
   "greeting": "Hola",
   "welcome": "¡Bienvenido a nuestro sitio!",
   "nav": {

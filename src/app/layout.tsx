@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import LanguageSwitcher from "@/components/ui/language-switcher";
+import { ModeToggle } from "@/components/theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default async function RootLayout({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <header className="flex justify-end p-4">
               <LanguageSwitcher />
+              <ModeToggle />
             </header>
             {children}
           </NextIntlClientProvider>

@@ -1,4 +1,4 @@
-import { ModeToggle } from "@/components/theme-toggle";
+// import { ModeToggle } from "@/components/theme-toggle";
 import { useTranslations } from "next-intl";
 
 export default function HomePage() {
@@ -8,9 +8,6 @@ export default function HomePage() {
     <main className="p-4">
       <h1 className="text-2xl font-bold">{t("title")}</h1>
       <p>{t("description")}</p>
-      <div className="flex justify-end pt-5 pr-5">
-        <ModeToggle />
-      </div>
     </main>
   );
 }
