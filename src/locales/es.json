@@ -1,15 +1,12 @@
 {
-  "title": "Bienvenido a la página de inicio",
-  "description": "Esta es una aplicación Next.js localizada.",
-  "language": "Español",
-  "greeting": "Hola",
-  "welcome": "¡Bienvenido a nuestro sitio!",
-  "nav": {
-    "home": "Inicio",
-    "about": "Sobre Nosotros"
+  "homepage": {
+    "title": "Bienvenido a tu Starter Kit",
+    "description": "Diseñado con Tailwind CSS 4.1, con soporte para modo oscuro y localización.",
+    "cta": "Comenzar"
   },
+  "language": "Español",
   "metadata": {
-    "title": "Crear aplicación Next",
-    "description": "Generado por crear aplicación Next"
+    "title": "Página principal del Starter Kit",
+    "description": "Un starter moderno de Next.js con Tailwind CSS e internacionalización."
   }
 }

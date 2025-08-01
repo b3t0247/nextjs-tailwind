@@ -2,17 +2,17 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages, getTranslations } from "next-intl/server";
-import { geistMono, geistSans } from "@/app/layout";
 import LanguageSwitcher from "@/components/ui/language-switcher";
-import { Providers } from "@/components/Providers";
+import { ModeToggle } from "@/components/theme-toggle";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }) {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await Promise.resolve(params); // ✅ explicitly await
   const t = await getTranslations({ locale: resolvedParams.locale });
+
   return {
     title: t("metadata.title"),
     description: t("metadata.description"),
@@ -35,15 +35,16 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Providers locale={locale} messages={messages}>
-          {children}
-          <LanguageSwitcher />
-        </Providers>
-      </body>
-    </html>
+    <NextIntlClientProvider
+      messages={messages}
+      locale={locale}
+      timeZone="America/Los_Angeles"
+    >
+      <header className="flex items-center justify-between border-b p-4">
+        <LanguageSwitcher />
+        <ModeToggle />
+      </header>
+      <main>{children}</main>
+    </NextIntlClientProvider>
   );
 }
