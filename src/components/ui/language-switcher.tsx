@@ -8,8 +8,7 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-// import { useRouter } from "next/navigation";
-import { locales } from "@/navigation";
+import { locales } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function LanguageSwitcher() {

@@ -7,5 +7,9 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre Nosotros"
+  },
+  "metadata": {
+    "title": "Crear aplicación Next",
+    "description": "Generado por crear aplicación Next"
   }
 }
