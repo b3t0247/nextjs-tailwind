@@ -19,6 +19,7 @@ A modern, well-structured starter kit for building fast, accessible, and scalabl
 - [🧪 Scripts](#scripts)
 - [🛠️ Tooling Configuration](#tooling-configuration)
 - [🧱 Development Workflow](#development-workflow)
+- [🌐 Internationalization (i18n)](#internationalization)
 - [♿ Accessibility](#accessibility)
 - [🧪 Commit Guidelines](#commit-guidelines)
 - [📚 Resources](#resources)
@@ -63,31 +64,44 @@ A modern, well-structured starter kit for building fast, accessible, and scalabl
 ```txt
 .
 ├── src/
-│   ├── app/                 # App Router entry point and global styles
-│   │   ├── globals.css      # Tailwind theme tokens and base styles
-│   │   ├── layout.tsx       # Root layout
-│   │   └── page.tsx         # Home page
-│   ├── components/          # Reusable UI and theme components
-│   │   ├── theme-provider.tsx
-│   │   ├── theme-toggle.tsx
+│   ├── app/                           # App Router entry point and global styles
+│   │   ├── [locale]/                  # Locale-based routing (e.g. /en, /es)
+│   │   │   ├── layout.tsx             # Shared layout per locale
+│   │   │   ├── page.tsx               # Locale-specific homepage
+│   │   │   └── ...                    # Locale-specific subpage
+│   │   ├── globals.css                # Tailwind theme tokens and base styles
+│   │   ├── layout.tsx                 # Root layout
+│   │   └── ...
+│   ├── components/                    # Reusable UI and theme components
+│   │   ├── theme-provider.tsx         # Context for theme management
+│   │   ├── theme-toggle.tsx           # Dark mode toggle component
 │   │   ├── ...
-│   │   └── ui/              # ShadCN UI components
+│   │   └── ui/                        # ShadCN UI components
 │   │       ├── button.tsx
 │   │       ├── dropdown-menu.tsx
+│   │       ├── language-switcher.tsx  # Locale toggle component
 │   │       └── ...
-│   ├── lib/                 # Shared utilities and helpers
+│   ├── i18n/                          # i18n logic and routing config
+│   │   ├── navigation.ts              # Navigation labels per locale
+│   │   ├── request.ts                 # Locale-aware request helpers
+│   │   └── routing.ts                 # Supported locales and default locale
+│   ├── lib/                           # Shared utilities and helpers
 │   │   └── utils.ts
-├── public/                  # Static assets served at root
-├── .husky/                  # Git hooks
-├── components.json          # ShadCN UI CLI config
-├── commitlint.config.mjs    # Conventional commit rules
-├── eslint.config.mjs        # Flat ESLint configuration with Prettier integration
-├── prettier.config.mjs      # Prettier with Tailwind plugin
-├── postcss.config.mjs       # PostCSS config for Tailwind CSS
-├── .lintstagedrc.mjs        # Format and lint staged files
-├── .release-it.ts           # Semantic versioning and changelog
-├── tsconfig.json            # TypeScript configuration
-└── package.json             # Project metadata and npm scripts
+│   ├── locales/                       # Translation message files
+│   │   ├── en.json
+│   │   └── es.json
+│   └── middleware.ts                  # Next.js middleware for locale detection and redirects
+├── public/                            # Static assets served at root
+├── .husky/                            # Git hooks
+├── components.json                    # ShadCN UI CLI config
+├── commitlint.config.mjs              # Conventional commit rules
+├── eslint.config.mjs                  # Flat ESLint configuration with Prettier integration
+├── prettier.config.mjs                # Prettier with Tailwind plugin
+├── postcss.config.mjs                 # PostCSS config for Tailwind CSS
+├── .lintstagedrc.mjs                  # Format and lint staged files
+├── .release-it.ts                     # Semantic versioning and changelog
+├── tsconfig.json                      # TypeScript configuration
+└── package.json                       # Project metadata and npm scripts
 ```
 
 <a id="getting-started"></a>
@@ -234,20 +248,81 @@ Customize your workflow and design system:
   </a>
   ```
 
-- **Language Declaration** Set the default language in `next.config.js`:
-
-  ```js
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  }
-  ```
-
 - **ARIA Roles (When Needed)** Use ARIA attributes for custom components like modals, tabs, or dropdowns - but prefer semantic HTML when possible.
 
 - **Accessibility Testing Tools** Use tools like [axe DevTools](https://www.deque.com/axe/devtools/), [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring), or screen readers like NVDA or VoiceOver to audit your app.
 
 > 💡 Tip: Accessibility is not just about compliance — it improves usability for everyone.
+
+<a id="internationalization"></a>
+
+## 🌐 Internationalization (i18n)
+
+This starter kit supports **locale-based routing and translations** using [`next-intl`](https://github.com/amannn/next-intl). Pages are served in the user's preferred language, with structured translation files and shared layout components.
+
+### ✅ Features
+
+- Locale detection and routing via Next.js middleware
+- Translation management using `next-intl` message files
+- Shared layout and Providers for consistent UX across locales
+- Easy extension to support additional languages
+
+### 🌍 Supported Locales
+
+| Locale | Path Prefix | Description       |
+| ------ | ----------- | ----------------- |
+| `en`   | `/en`       | English (default) |
+| `es`   | `/es`       | Spanish           |
+
+### 📁 Translation Structure
+
+Translation files are stored in:
+
+```txt
+src/locales/
+├── en.json
+├── es.json
+```
+
+Each file contains key-value pairs used throughout the app. Example:
+
+```json
+{
+  "home.title": "Welcome",
+  "home.description": "This is the English version of the homepage."
+}
+```
+
+### 🛠️ Adding a New Locale
+
+1. Create a new JSON file in `src/locales/` (e.g. `fr.json`)
+2. Add the locale to the `locales` array in `src/i18n/routing.ts`
+3. Add translations for all required keys
+
+### 🧪 Development Tips
+
+- Use the `useTranslations()` hook from `next-intl` to access localized strings
+- Wrap your layout with `NextIntlClientProvider to enable translations
+- Test locale routing by visiting `/en`, `/es`, etc.
+
+### 📦 Example Usage
+
+```tsx
+import { useTranslations } from "next-intl";
+
+export default function HomePage() {
+  const t = useTranslations("home");
+
+  return (
+    <main>
+      <h1>{t("title")}</h1>
+      <p>{t("description")}</p>
+    </main>
+  );
+}
+```
+
+> 💡 Tip: You can preview locale-specific pages by navigating directly to `/en`, `/es`, etc. Middleware handles redirection based on browser language preferences.
 
 <a id="commit-guidelines"></a>
 
