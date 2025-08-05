@@ -10,6 +10,16 @@ The format is based on [Conventional Commits](https://www.conventionalcommits.or
 and this project uses [release-it](https://github.com/release-it/release-it)
 with dynamic linking powered by short hashes and commit URLs.
 
+## 1.1.0 (August 4, 2025)
+
+### feat
+
+- feat(i18n): add locale routing, shared layout, and translations ([39ce727](https://github.com/b3t0247/nextjs-tailwind/commit/39ce727))
+
+### refactor
+
+- refactor(src): migrate app structure to src/ layout ([dfb9907](https://github.com/b3t0247/nextjs-tailwind/commit/dfb9907))
+
 ## 1.0.3 (July 28, 2025)
 
 ### chore
